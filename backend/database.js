@@ -1,13 +1,13 @@
 const admin = require("firebase-admin");
 
-let serviceAccount;
+let privateKey;
 
 // HEROKU
 // heroku.com, configvars -> key = PRIVATE_KEY, VALUE -> All den hemliga infon från private key
-if (process.env.PRIVATE_KEY){
-    serviceAccount = JSON.parse(process.env.PRIVATE_KEY)
+if (process.env.PRIVATE_KEY) {
+    privateKey = JSON.parse(process.env.PRIVATE_KEY)
 } else {
-    serviceAccount = require("./firebase_key.json");
+    privateKey = require("./firebase_key.json");
 }
 
 admin.initializeApp({
@@ -20,4 +20,4 @@ function getDatabase() {
 }
 
 //exportera databasen
-module.exports = getDatabase
+module.exports = getDatabase;
