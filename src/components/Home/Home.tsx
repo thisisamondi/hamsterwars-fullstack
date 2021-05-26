@@ -1,5 +1,5 @@
 import './Home.css';
-import hammy from "../img/hammy.png"
+import hammy from "../../img/hammy.png";
 
 const Home = () => {
 	

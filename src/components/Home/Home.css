@@ -6,7 +6,7 @@
 	color: black;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-image:url(../img/background.jpg)
+	background-image:url(../../img/background.jpg)
 
 }
 
@@ -16,7 +16,6 @@
 .maintxtAlt {
 		font-family: 'Ubuntu Mono', monospace;
 		color: white;
-
 }
 
 h1 {

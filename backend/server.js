@@ -31,6 +31,8 @@ app.get('*',(req, res)=>{
 	res.sendFile(path.join(__dirname, '../build/index.html'))
 });
 
+
+
 // starta severn
 app.listen(PORT, ()=> {
 	console.log('server is listenin on port' + PORT)
