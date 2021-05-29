@@ -1,28 +1,37 @@
 import './Gallery.css';
-
-interface Props{
-	items: HamsterItem [],
-	
-}
-
-interface HamsterItem {
-	name: string,
-	age: number, 
-	favefood: string,
-	loves: string	
-}
+import { useEffect, useState } from 'react'
+import { Hamster } from '../../types/Hamster'
 
 
-const Gallery = ({items}: Props) => {
+const Gallery = () => {
+	const [hamsters, setHamsters] = useState<null | Hamster[]>(null)
+
+	useEffect(() => {
+		async function getHamsters() {
+			const response = await fetch('/hamsters', { method: 'GET' })
+			const data: Hamster[] = await response.json()
+			// Använd "mountedRef" här
+			setHamsters(data)
+			// OBS! Bättre att hämta datan i App-komponenten, eftersom den alltid är MOUNTED
+		}
+		getHamsters()
+	}, [])
 
 
 	return (
-		<div className="Gallery">
-			<h1>GALLERY</h1>
-			{items.length === 0 ? "Your gallery is empty" : " TODO: map all the items"}
+		<div>
+			{hamsters? hamsters.map(hamster => (
+					<div key={hamster.id}>
+						<img src={`/img/${hamster.imgName}`} alt="img of hamster" /> <br />
+						{hamster.name} <br/>
+
+						<button> Mer info </button>
+					</div>
+				))
+				: 'Hämtar produkter från API...'
+			}
 		</div>
 	)
 }
 
-export default Gallery;
-export type { HamsterItem };
+export default Gallery

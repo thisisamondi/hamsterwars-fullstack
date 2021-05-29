@@ -3,9 +3,15 @@ const app = express();
 const cors = require('cors');
 const path = require('path');
 
+const hamsters = require('./routes/hamsters.js');
+const matches = require('./routes/matches.js')
+const matchWinners = require('./routes/matchWinners.js')
+const winners = require('./routes/winners.js')
+const losers = require('./routes/losers.js')
+
 // Heroku uses process.env.PORT
 
-const PORT = process.env.PORT || 1337;
+const PORT = process.env.PORT || 1339;
 
 const buildFolder = path.join(__dirname, '../build');
 
@@ -24,6 +30,12 @@ app.get('/', (req, res)=>{
 	res.send('Hello from server')
 });
 
+//REST API
+app.use('/hamsters', hamsters)
+app.use('/matches', matches)
+app.use('/matchWinners', matchWinners)
+app.use('/losers', losers)
+app.use('/winners', winners)
 
 //SIST: fånga alla övriga request
 //för att frontend routing ska fungera
@@ -35,5 +47,7 @@ app.get('*',(req, res)=>{
 
 // starta severn
 app.listen(PORT, ()=> {
-	console.log('server is listenin on port' + PORT)
+	console.log('server is listening on port' + PORT)
 });
+
+

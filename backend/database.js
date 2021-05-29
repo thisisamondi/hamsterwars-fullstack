@@ -11,7 +11,7 @@ if (process.env.PRIVATE_KEY) {
 }
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+  credential: admin.credential.cert(privateKey)
 });
 
 //Hämta Databasen

@@ -1,22 +1,18 @@
-// import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 //import components
 import Home from './components/Home/Home';
 import Gallery from './components/Gallery/Gallery'
 import Battle from './components/Battle/Battle'
-import { HamsterItem } from './components/Gallery/Gallery'
+// import { HamsterItem } from './components/Gallery/Gallery'
 
 import './App.css';
 
-const HamsterData: HamsterItem[] = []
+// const HamsterData: HamsterItem[] = []
 
 function App() {
 
-// const [header, setHeader] = useState("HAMSTERWARS");
-
-// const showHeader = () => {
-// }
 
   return (
     <Router>
@@ -29,7 +25,10 @@ function App() {
                 <Battle />
               </Route>
 
-              <Route path="/gallery" render={()=> <Gallery items = { HamsterData } />} />
+              {/* <Route path="/gallery" render={()=> <Gallery items = { HamsterData } />} /> */}
+              <Route path="/gallery">
+                <Gallery />
+              </Route>
 
               <Route path="/">
                 <Home />
