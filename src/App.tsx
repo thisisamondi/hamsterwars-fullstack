@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Home from './components/Home/Home';
 import Gallery from './components/Gallery/Gallery'
 import Battle from './components/Battle/Battle'
+import AddHamster from './components/AddHamster/AddHamster'
 // import { HamsterItem } from './components/Gallery/Gallery'
 
 import './App.css';
@@ -25,9 +26,13 @@ function App() {
                 <Battle />
               </Route>
 
-              {/* <Route path="/gallery" render={()=> <Gallery items = { HamsterData } />} /> */}
+      
               <Route path="/gallery">
-                <Gallery />
+               <Gallery />
+              </Route>I’m 
+              
+               <Route path="/add-hamster">
+                <AddHamster />
               </Route>
 
               <Route path="/">
