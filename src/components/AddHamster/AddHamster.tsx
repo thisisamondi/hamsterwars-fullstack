@@ -1,5 +1,6 @@
 import './AddHamster.css'
 import React, { useEffect, useState } from 'react';
+import { Redirect } from 'react-router';
 
 const AddHamster = () => {
 	const [name, setName] = useState('')
@@ -73,6 +74,23 @@ const AddHamster = () => {
 
 	let formIsInvalid = !nameIsValid || !ageIsValid || !favFoodIsValid || !lovesIsValid;
 
+	
+	
+	async function addHamster( url = '', data = {}) {
+
+		const response = await fetch('/hamsters' , { 
+			method: 'POST', 
+			headers: {'Content-Type': 'application/json'}, 
+			body: JSON.stringify(data) });
+		//fixa statusmeddelande om det går fel. 
+		alert("hamster posted")
+		
+		return response.json(); // parses JSON response into native JavaScript objects
+		
+		//redirect till gallery
+	}
+  	
+
 
 
 	return (
@@ -134,7 +152,7 @@ const AddHamster = () => {
 		
 
 			<div>
-				<button disabled={formIsInvalid}> Save changes </button>
+				<button onClick={() => addHamster('/hamsters', {name, age, favFood, loves} )} disabled={formIsInvalid}> Add Hamsters </button>
 			</div>
 
 		</div>
