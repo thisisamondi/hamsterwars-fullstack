@@ -4,6 +4,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	margin: 0em 15em
 }
 
 .maintxt {
@@ -18,7 +19,8 @@
 .container {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
-	gap: 20px;
+	overflow: auto;
+	height: 100vh;
 }
 
 .image {
@@ -63,4 +65,31 @@
 	color: rgb(168, 46, 46);
 	border: .125rem solid rgb(119, 56, 56);
 	border-radius: .9rem;
+}
+
+.removeHamster:hover {
+	cursor: pointer;
+}
+
+
+.addHamster {
+	width: 244px;
+	height: 3em;
+	background: #FF9800;
+	border-radius: 10px;
+	border-style: none;
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	color: white;
+
+}
+
+.gallery h1 {
+	padding-top: 0;
+}
+
+.gallery p {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 1.5em;
+
 }

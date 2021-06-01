@@ -35,7 +35,11 @@ const Gallery = () => {
 	return (
 		<div className="gallery">
 			<h1>GALLERY</h1>
-			<Link to="/add-hamster"> <button>Add Hamster</button> </Link>
+			<p> 
+			1. Hover over image to see more info about a hamster<br />
+			2. Press the "X" to remove specific hamster from gallery</p>
+			
+			<Link to="/add-hamster"> <button className="addHamster">+ Click here to add new hamster</button> </Link>
 			<section className ="container">
 				{hamsters? hamsters.map(hamster => (
 						<div key={hamster.id} >

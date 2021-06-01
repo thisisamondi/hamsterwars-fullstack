@@ -1,0 +1,65 @@
+.addHamsters {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	text-align: left;
+	align-items: center;
+}
+
+.addHamsters .form {
+	display: flex;
+	flex-direction: column;
+	width: 890px;
+	margin-top: 1vh;
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 2em;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 10px;
+	align-items: center;
+	padding-top: 2em;
+	padding-bottom: 1em;
+
+}
+
+.addHamsters input {
+	height: 3em;
+	width: 35em;
+	border: solid 2px;
+	border-radius: 10px;
+	background-color: #FFFFFF;
+	opacity: 30%;
+
+}
+
+.formInput {
+	margin-bottom: 1em;
+}
+
+.addHamsters .message {
+	font-family: 'Ubuntu Mono', monospace;
+	color: rgb(255, 255, 255);
+	font-size: 0.5em;
+
+}
+
+/* .form div {
+	margin-left: 3em;
+} */
+
+.addHamsters button {
+	width: 8em;
+	height: 2em;
+	background: #FF9800;
+	border-radius: 10px;
+	border-style: none;
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 0.7em;
+	color: white;
+	margin-top: 1em;
+}
+
+.addHamsters button:hover {
+	color: #9A41C5;
+	cursor: pointer;
+
+}

@@ -1,13 +1,15 @@
 import './Battle.css'
+import { Hamster } from '../../types/Hamster'
 import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import { useEffect, useState } from 'react'
+
 
 const Battle = () => {
-	
+
 	return (
 		<div className="Battle">
 			
-				<h1>BATTLE</h1>
-			
+			<h1>BATTLE</h1>
 
 			<div className="battleBoxes">
 				<section className="image Left">

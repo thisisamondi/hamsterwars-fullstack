@@ -1,6 +1,9 @@
 import './AddHamster.css'
 import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router';
+import { getAllJSDocTagsOfKind } from 'typescript';
+import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+
 
 const AddHamster = () => {
 	const [name, setName] = useState('')
@@ -15,8 +18,6 @@ const AddHamster = () => {
 	const [loves, setLoves] = useState('')
 	const [lovesTouched, setLovesTouched] = useState(false)
 
-	// Variabler för validering (kontrollera rimligheten i värden)
-	// Ändra bara CSS-klassen om användaren haft en chans att ändra värdet
 
 	//Name input
 	let nameIsValid: boolean = true
@@ -64,7 +65,7 @@ const AddHamster = () => {
     let lovesErrorMessage: string = ''
     if( loves === '' ) {
         lovesIsValid = false
-        lovesErrorMessage = 'PLease type in what you love.'
+        lovesErrorMessage = 'Please type in what you love.'
     }
 	let lovesClass = ''
 	if( lovesTouched ) {
@@ -74,7 +75,6 @@ const AddHamster = () => {
 
 	let formIsInvalid = !nameIsValid || !ageIsValid || !favFoodIsValid || !lovesIsValid;
 
-	
 	
 	async function addHamster( url = '', data = {}) {
 
@@ -88,21 +88,22 @@ const AddHamster = () => {
 		return response.json(); // parses JSON response into native JavaScript objects
 		
 		//redirect till gallery
+		
 	}
   	
 
 
 
 	return (
-	<div>
+	<div className="addHamsters">
 		<h1>ADD HAMSTER</h1>
 
 		<section>
 
-		<div className="update-form">
+		<div className="form">
 
-			<div>
-				<label> Name </label>
+			<div className="formInput">
+				<label> NAME: </label><br />
 				<input 
 				type="text"
 				onBlur={() => setNameTouched(true)}
@@ -113,8 +114,8 @@ const AddHamster = () => {
 				{nameTouched ? <div className="message"> {nameErrorMessage} </div> : null}
 			</div>
 
-			<div>
-				<label> Age </label>
+			<div className="formInput">
+				<label> AGE: </label><br />
 				<input 
 				type="text"
 				onBlur={() => setAgeTouched(true)}
@@ -125,8 +126,8 @@ const AddHamster = () => {
 				{ageTouched ? <div className="message"> {ageErrorMessage} </div> : null}
 			</div>
 
-			<div>
-				<label> Fav Food </label>
+			<div className="formInput">
+				<label> FAVORITE FOOD: </label><br />
 				<input 
 				type="text"
 				onBlur={() => setFavFoodTouched(true)}
@@ -137,8 +138,8 @@ const AddHamster = () => {
 				{favFoodTouched ? <div className="message"> {favFoodErrorMessage} </div> : null}
 			</div>
 
-			<div>
-				<label> Loves </label>
+			<div className="formInput">
+				<label> LOVES: </label><br />
 				<input 
 				type="text"
 				onBlur={() => setLovesTouched(true)}
@@ -152,14 +153,18 @@ const AddHamster = () => {
 		
 
 			<div>
-				<button onClick={() => addHamster('/hamsters', {name, age, favFood, loves} )} disabled={formIsInvalid}> Add Hamsters </button>
+				<button onClick={() => addHamster('/hamsters', {name, age, favFood, loves} )} disabled={formIsInvalid}> Add Hamster </button>
 			</div>
+			
 
 		</div>
 
 		</section>
+
+		<Link to="/"><h3 className="exit">EXIT(ESC)</h3></Link>
+
 	</div>
 	)}
 
 
-export default AddHamster
+export default AddHamster;
