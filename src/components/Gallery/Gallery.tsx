@@ -41,7 +41,7 @@ const Gallery = () => {
 			
 			<Link to="/add-hamster"> <button className="addHamster">+ Click here to add new hamster</button> </Link>
 			<section className ="container">
-				{hamsters? hamsters.map(hamster => (
+				{hamsters ? hamsters.map(hamster => (
 						<div key={hamster.id} >
 							<button onClick={() => deleteHamster(hamster.id)} className="removeHamster">X</button>
 							<div className="image">
@@ -59,7 +59,7 @@ const Gallery = () => {
 							
 						</div>
 					))
-					: 'Hämtar produkter från API...'
+					: 'Hämtar hamstrar från API...'
 				}
 			</section>
 		</div>

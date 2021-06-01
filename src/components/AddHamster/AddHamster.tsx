@@ -78,16 +78,16 @@ const AddHamster = () => {
 	
 	async function addHamster( url = '', data = {}) {
 
-		const response = await fetch('/hamsters' , { 
+			const response = await fetch('/hamsters' , { 
 			method: 'POST', 
 			headers: {'Content-Type': 'application/json'}, 
 			body: JSON.stringify(data) });
-		//fixa statusmeddelande om det går fel. 
-		alert("hamster posted")
+			//fixa statusmeddelande om det går fel. 
+			alert("hamster posted")
 		
-		return response.json(); // parses JSON response into native JavaScript objects
+			return response.json(); // parses JSON response into native JavaScript objects
 		
-		//redirect till gallery
+			//redirect till gallery
 		
 	}
   	
