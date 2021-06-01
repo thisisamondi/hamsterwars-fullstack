@@ -48,6 +48,8 @@
     ]
   },
   "devDependencies": {
+    "@iconify/icons-ri": "^1.1.0",
+    "@iconify/react": "^1.1.4",
     "@types/react-router-dom": "^5.1.7"
   }
 }

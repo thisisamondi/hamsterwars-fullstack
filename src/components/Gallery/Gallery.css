@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&family=VT323&display=swap');
 
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
 .gallery {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	margin: 0em 15em
+	padding: 0em 20em;
+	height: 110vh;
 }
 
 .maintxt {
@@ -20,12 +25,12 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	overflow: auto;
-	height: 100vh;
+	height: 60vh;
 }
 
 .image {
 	position: relative;
-	width: 200px;
+	width: 220px;
 }
 
 .img {
@@ -49,11 +54,6 @@
 	align-items: flex-start;
 }
 
-.infoOverlay p {
-	margin: 0;
-	padding: 0;
-}
-
 .infoOverlay:hover {
 	opacity: 1;
 }
@@ -62,9 +62,11 @@
 	font-size: 1.2rem;
 	font-weight: 700;
 	text-decoration: none;
-	color: rgb(168, 46, 46);
-	border: .125rem solid rgb(119, 56, 56);
-	border-radius: .9rem;
+	border-style: none;
+	color: #FF9800;
+	background-color: #9A41C5;
+	margin-left: 10em;
+
 }
 
 .removeHamster:hover {
@@ -81,15 +83,50 @@
 	font-family: 'Ubuntu Mono', monospace;
 	font-size: 1em;
 	color: white;
+	margin: 1.5em 0;
 
 }
 
-.gallery h1 {
-	padding-top: 0;
+.addHamster:hover {
+	color: #9A41C5;
+	cursor: pointer;
 }
 
-.gallery p {
+.galleryInfo {
 	font-family: 'Ubuntu Mono', monospace;
 	font-size: 1.5em;
+	margin-top: 0.5em
+}
 
+.infoOverlay p {
+	font-family: 'Ubuntu Mono', monospace;
+	margin: 0.2em;
+}
+
+.hamsterName {
+	padding: 0.5em 0em;
+	font-size: 1.3em;
+	font-family: 'Ubuntu Mono', monospace;
+	text-align: left;
+	letter-spacing: 0.05em;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: rgba(255, 255, 255, 0.468)
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: rgb(255, 153, 0)
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: rgb(255, 119, 0);
 }

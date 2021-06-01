@@ -1,7 +1,7 @@
 .addHamsters {
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
+	height: 110vh;
 	text-align: left;
 	align-items: center;
 }
@@ -9,7 +9,7 @@
 .addHamsters .form {
 	display: flex;
 	flex-direction: column;
-	width: 890px;
+	width: 100vh;
 	margin-top: 1vh;
 	font-family: 'Ubuntu Mono', monospace;
 	font-size: 2em;

@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import { Hamster } from '../../types/Hamster'
 import { useParams } from 'react-router';
 import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import { Icon, InlineIcon } from '@iconify/react';
+import deleteBin6Line from '@iconify/icons-ri/delete-bin-6-line';
 
 
 const Gallery = () => {
@@ -35,7 +37,7 @@ const Gallery = () => {
 	return (
 		<div className="gallery">
 			<h1>GALLERY</h1>
-			<p> 
+			<p className="galleryInfo">
 			1. Hover over image to see more info about a hamster<br />
 			2. Press the "X" to remove specific hamster from gallery</p>
 			
@@ -43,7 +45,10 @@ const Gallery = () => {
 			<section className ="container">
 				{hamsters ? hamsters.map(hamster => (
 						<div key={hamster.id} >
-							<button onClick={() => deleteHamster(hamster.id)} className="removeHamster">X</button>
+							<button onClick={() => deleteHamster(hamster.id)} className="removeHamster">
+								<Icon icon={deleteBin6Line} style={{color: '#ff9800', fontSize: '24px'}} />
+							</button>
+
 							<div className="image">
 								<img className="img" src={`/img/${hamster.imgName}`} alt="img of hamster" />
 									<div className ="infoOverlay">
@@ -54,8 +59,11 @@ const Gallery = () => {
 										<p>Defeats: {hamster.defeats}</p>
 										<p>Games: {hamster.games}</p>
 									</div>
-							</div> <br />
-								<p>{hamster.name}</p> <br/>
+							</div>
+
+								<p className="hamsterName">
+								{hamster.name.toUpperCase()}
+								</p>
 							
 						</div>
 					))

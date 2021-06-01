@@ -10,10 +10,12 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+	margin-top: 3em;
 }
 
-img {
+.battle img {
 	height: 200px;
+	padding: 2em
 }
 
 h2 {
@@ -22,6 +24,7 @@ h2 {
 	color: #FF9800;
 	letter-spacing: 0.05em;
 	margin: 0px;
+	padding-top: 2em;
 
 }
 
@@ -40,4 +43,13 @@ a {
 
 h3:hover {
 	color: white
+}
+
+.hamsterInfo1,
+.hamsterInfo2 {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 1.3em;
+	text-align: left;
+	padding-left: 2em;
+	color: #FFFFFF;
 }

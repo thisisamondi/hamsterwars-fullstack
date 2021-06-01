@@ -7,6 +7,7 @@ import { isConstructorDeclaration } from 'typescript';
 
 
 const Battle = () => {
+
 const [hamster1, setHamster1] = useState({
 	id: "",
 	name: "",
@@ -18,6 +19,7 @@ const [hamster1, setHamster1] = useState({
 	defeats: "", 
 	games: ""
 })
+
 const [hamster2, setHamster2] = useState({
 	id: "",
 	name: "",
@@ -47,6 +49,7 @@ async function getRandomHamsters() {
 }
 
 
+
 useEffect(() => {
 		getRandomHamsters()
 		
@@ -60,12 +63,12 @@ useEffect(() => {
 			<h1>BATTLE</h1>
 
 			<div className="battleBoxes">
-				<section className="image Left">
-					<img className="" src={`/img/${hamster1.imgName}`} alt="img of hamster" />
+				<section className="battle Left">
+					<img className="hamsterImg" src={`/img/${hamster1.imgName}`} alt="img of hamster" />
 					<div className="hamsterInfo1">
-						<p>Name: {hamster1.name} </p>
-						<p>Age: {hamster1.age}</p>
-						<p>Loves: {hamster1.loves}</p>
+						<p>NAME: {hamster1.name.toUpperCase()} </p>
+						<p>AGE: {hamster1.age}</p>
+						<p>LOVES: {hamster1.loves.toUpperCase()}</p>
 
 					</div>
 					<button className="btn"> (&lt;-)   Vote</button>
@@ -73,12 +76,12 @@ useEffect(() => {
 
 				<h2>VS</h2>
 
-				<section className="image Right">
-					<img className="" src={`/img/${hamster2.imgName}`} alt="img of hamster" />
+				<section className="battle Right">
+					<img className="hamsterImg" src={`/img/${hamster2.imgName}`} alt="img of hamster" />
 					<div className="hamsterInfo1">
-						<p>Name: {hamster2.name} </p>
-						<p>Age: {hamster2.age}</p>
-						<p>Loves: {hamster2.loves}</p>
+						<p>NAME: {hamster2.name.toUpperCase()} </p>
+						<p>AGE: {hamster2.age}</p>
+						<p>LOVES: {hamster2.loves.toUpperCase()}</p>
 
 					</div>
 					<button className="btn">   Vote (-&gt;)</button>
