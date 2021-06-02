@@ -3,9 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router';
 import { getAllJSDocTagsOfKind } from 'typescript';
 import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {Hamster} from '../../types/Hamster'
 
 
 const AddHamster = () => {
+	const [id, setId] = useState('')
+
 	const [name, setName] = useState('')
 	const [nameTouched, setNameTouched] = useState(false)
 	
@@ -18,13 +21,15 @@ const AddHamster = () => {
 	const [loves, setLoves] = useState('')
 	const [lovesTouched, setLovesTouched] = useState(false)
 
+	const [img, setImg] = useState('')
+	const [imgTouched, setImgTouched] = useState(false)
+
 
 	//Name input
 	let nameIsValid: boolean = true
 	let nameErrorMessage: string = ''
 	if( name === '' ) {
 		nameIsValid = false
-		// nameErrorMessage = 'Du har inte skrivit något namn.'
 		nameErrorMessage = 'Please type your name.'
 	}
 	let nameClass = ''
@@ -36,10 +41,13 @@ const AddHamster = () => {
 	const allowedAgeCharacters = "0123456789"
 	let ageIsValid: boolean = true
 	let ageErrorMessage: string = ''
+
 	if( age === '' ) {
 		ageIsValid = false
 		ageErrorMessage = 'Please type your age.'
-	} else if( !age.split('').every(char => allowedAgeCharacters.includes(char)) ) {
+
+	} 
+	else if( !age.split('').every(char => allowedAgeCharacters.includes(char)) ) {
 		ageIsValid = false
 		ageErrorMessage = 'Type your age like this: "27".'
 	}
@@ -72,11 +80,36 @@ const AddHamster = () => {
 		lovesClass = (lovesIsValid ? 'valid' : 'error')
 	}
 
+	//Image input
+	let imgIsValid: boolean = true
+    let imgErrorMessage: string = ''
+    if( img === '' ) {
+        imgIsValid = false
+        imgErrorMessage = 'Please type url to img'
+    }
+	let imgClass = ''
+	if( imgTouched ) {
+		imgClass = (imgIsValid ? 'valid' : 'error')
+	}
 
-	let formIsInvalid = !nameIsValid || !ageIsValid || !favFoodIsValid || !lovesIsValid;
+
+	let formIsInvalid = !nameIsValid || !ageIsValid || !favFoodIsValid || !lovesIsValid || !imgIsValid;
 
 	
-	async function addHamster( url = '', data = {}) {
+	async function addHamster() {
+			
+			let data: Hamster = {
+				id: id,
+				name: name, 
+				age: Number(age),
+				favFood: favFood, 
+				loves: loves,
+				imgName: img, 
+				wins: 0, 
+				defeats: 0, 
+				games: 0, 
+
+			}
 
 			const response = await fetch('/hamsters' , { 
 			method: 'POST', 
@@ -84,7 +117,7 @@ const AddHamster = () => {
 			body: JSON.stringify(data) });
 			//fixa statusmeddelande om det går fel. 
 			alert("hamster posted")
-		
+			
 			return response.json(); // parses JSON response into native JavaScript objects
 		
 			//redirect till gallery
@@ -117,7 +150,7 @@ const AddHamster = () => {
 			<div className="formInput">
 				<label> AGE: </label><br />
 				<input 
-				type="text"
+				type="number"
 				onBlur={() => setAgeTouched(true)}
 				onChange={e => setAge(e.target.value)}
 				value={age}
@@ -150,10 +183,22 @@ const AddHamster = () => {
 				{lovesTouched ? <div className="message"> {lovesErrorMessage} </div> : null}
 			</div>
 
+			<div className="formInput">
+				<label> IMAGE: </label><br />
+				<input 
+				type="text"
+				onBlur={() => setImgTouched(true)}
+				onChange={e => setImg(e.target.value)}
+				value={img}
+				className={imgClass}
+				/>
+				{imgTouched ? <div className="message"> {imgErrorMessage} </div> : null}
+			</div>
+
 		
 
 			<div>
-				<button onClick={() => addHamster('/hamsters', {name, age, favFood, loves} )} disabled={formIsInvalid}> Add Hamster </button>
+				<button onClick={() => addHamster()} disabled={formIsInvalid}> Add Hamster </button>
 			</div>
 			
 

@@ -7,7 +7,7 @@ import { isConstructorDeclaration } from 'typescript';
 
 
 const Battle = () => {
-
+// const [hamster1, setHamster1] = useState < null | Hamster>(null)
 const [hamster1, setHamster1] = useState({
 	id: "",
 	name: "",
@@ -39,13 +39,24 @@ async function getRandomHamsters() {
 		const data1 = await response1.json()
 		const data2 = await response2.json()
 
-		setHamster1(data1)
-		setHamster2(data2)
-
+			// if (data1) {
+			// 	setHamster1(data1) 
+			// } else {
+			// 	"hämtar hamstrar från API..."
+			// }
+			// if (data2) {
+			// 	setHamster2(data2) 
+			// } else{
+			// 	"hämtar hamstrar från API..."
+			// }
+			
+		
 		//Make sure you don't get two simliar hamsters
-		data1 === data2 ? getRandomHamsters() : setHamster1(data1)
-		setHamster2(data2)
-
+		// {data1 === data2 ? getRandomHamsters() : setHamster1(data1) && setHamster2(data2)}
+		// {data2 === data1 ? getRandomHamsters() : setHamster2(data2)}
+			setHamster1(data1)
+			setHamster2(data2)
+		
 }
 
 

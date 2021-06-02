@@ -70,6 +70,7 @@ const Gallery = () => {
 					: 'Hämtar hamstrar från API...'
 				}
 			</section>
+			<Link to="/"><h3 className="exit">EXIT(ESC)</h3></Link>
 		</div>
 	)
 }
