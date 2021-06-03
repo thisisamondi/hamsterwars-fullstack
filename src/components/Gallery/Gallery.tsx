@@ -1,9 +1,8 @@
 import './Gallery.css';
 import { useEffect, useState } from 'react'
 import { Hamster } from '../../types/Hamster'
-import { useParams } from 'react-router';
-import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import { Icon, InlineIcon } from '@iconify/react';
+import { Link } from "react-router-dom";
+import { Icon } from '@iconify/react';
 import deleteBin6Line from '@iconify/icons-ri/delete-bin-6-line';
 
 
@@ -11,9 +10,11 @@ const Gallery = () => {
 	const [hamsters, setHamsters] = useState<null | Hamster[]>(null)
 
 	async function getHamsters() {
+		console.log("get hamster")
 		const response = await fetch('/hamsters', { method: 'GET' })
 		const data: Hamster[] = await response.json()
 		setHamsters(data)
+		
 	}
 
 	useEffect(() => {

@@ -17,7 +17,7 @@ const buildFolder = path.join(__dirname, '../build');
 
 //middleware
 app.use((req,res,next) =>{
-	console.log(`${req.method} ${req.usl}`, req.params);
+	console.log(`${req.method} ${req.url}`, req.params);
 	next()
 });
 

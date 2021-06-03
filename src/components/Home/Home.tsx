@@ -1,6 +1,6 @@
 import './Home.css';
 import hammy from "../../img/hammy.png";
-import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
@@ -10,7 +10,7 @@ const Home = () => {
 		<div className="Home">
 			<h1>HAMSTERWARS</h1>
 			<div className="homeContainer">
-				<img className="hammy" src={hammy} alt="image of hammy the hamster" />
+				<img className="hammy" src={hammy} alt="hammy the hamster" />
 				<p className="maintxt">
 					HI, MY MY NAME IS HAMMY <br />
 					AND THIS IS HAMSTERWARS!

@@ -1,13 +1,11 @@
 import './AddHamster.css'
-import React, { useEffect, useState } from 'react';
-import { Redirect } from 'react-router';
-import { getAllJSDocTagsOfKind } from 'typescript';
-import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import {Hamster} from '../../types/Hamster'
+import { useState } from 'react';
+import { Link } from "react-router-dom";
+import { Hamster } from '../../types/Hamster'
 
 
 const AddHamster = () => {
-	const [id, setId] = useState('')
+	const id = ''
 
 	const [name, setName] = useState('')
 	const [nameTouched, setNameTouched] = useState(false)
@@ -116,7 +114,6 @@ const AddHamster = () => {
 			headers: {'Content-Type': 'application/json'}, 
 			body: JSON.stringify(data) });
 			//fixa statusmeddelande om det går fel. 
-			alert("hamster posted")
 			
 			return response.json(); // parses JSON response into native JavaScript objects
 		
