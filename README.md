@@ -9,6 +9,7 @@ Also to create status codes to evaluate our app along the way and catch errors.
 Created the frontend app in React with Typescript. 
 
 Design by me with a mockup I first made in figma:
+
 **Link:** https://www.figma.com/proto/SaSBGMJip60c2CjmvP8RbB/Hamsterwars?node-id=0%3A1
 
 
