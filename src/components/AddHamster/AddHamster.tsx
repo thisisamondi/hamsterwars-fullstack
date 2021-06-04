@@ -5,6 +5,7 @@ import { Hamster } from '../../types/Hamster'
 
 
 const AddHamster = () => {
+	
 	const id = ''
 
 	const [name, setName] = useState('')
@@ -23,7 +24,7 @@ const AddHamster = () => {
 	const [imgTouched, setImgTouched] = useState(false)
 
 
-	//Name input
+	//NAME INPUT VALIDATION
 	let nameIsValid: boolean = true
 	let nameErrorMessage: string = ''
 	if( name === '' ) {
@@ -35,7 +36,7 @@ const AddHamster = () => {
 		nameClass = (nameIsValid ? 'valid' : 'error')
 	}
 
-	//Age input
+	//AGE INNPUT VALIDATION
 	const allowedAgeCharacters = "0123456789"
 	let ageIsValid: boolean = true
 	let ageErrorMessage: string = ''
@@ -54,7 +55,7 @@ const AddHamster = () => {
 		ageClass = (ageIsValid ? 'valid' : 'error')
 	}
 
-	//FavFood input
+	//FAV FOOD INPUT VALIDATION
 	let favFoodIsValid: boolean = true
     let favFoodErrorMessage: string = ''
     if( favFood === '' ) {
@@ -66,7 +67,7 @@ const AddHamster = () => {
 		favFoodClass = (favFoodIsValid ? 'valid' : 'error')
 	}
 
-	//Loves input
+	//LOVES INPUT VALIDATION
     let lovesIsValid: boolean = true
     let lovesErrorMessage: string = ''
     if( loves === '' ) {
@@ -78,7 +79,7 @@ const AddHamster = () => {
 		lovesClass = (lovesIsValid ? 'valid' : 'error')
 	}
 
-	//Image input
+	//IMAGE INPUT VALIDATION
 	let imgIsValid: boolean = true
     let imgErrorMessage: string = ''
     if( img === '' ) {
@@ -93,31 +94,31 @@ const AddHamster = () => {
 
 	let formIsInvalid = !nameIsValid || !ageIsValid || !favFoodIsValid || !lovesIsValid || !imgIsValid;
 
-	
+	//BTN ON CLICK ADD HAMSTER
 	async function addHamster() {
 			
-			let data: Hamster = {
-				id: id,
-				name: name, 
-				age: Number(age),
-				favFood: favFood, 
-				loves: loves,
-				imgName: img, 
-				wins: 0, 
-				defeats: 0, 
-				games: 0, 
+		let data: Hamster = {
+			id: id,
+			name: name, 
+			age: Number(age),
+			favFood: favFood, 
+			loves: loves,
+			imgName: img, 
+			wins: 0, 
+			defeats: 0, 
+			games: 0, 
 
-			}
+		}
 
-			const response = await fetch('/hamsters' , { 
-			method: 'POST', 
-			headers: {'Content-Type': 'application/json'}, 
-			body: JSON.stringify(data) });
-			//fixa statusmeddelande om det går fel. 
-			
-			return response.json(); // parses JSON response into native JavaScript objects
+		const response = await fetch('/hamsters' , { 
+		method: 'POST', 
+		headers: {'Content-Type': 'application/json'}, 
+		body: JSON.stringify(data) });
+		//fixa statusmeddelande om det går fel. 
 		
-			//redirect till gallery
+		return response.json(); // parses JSON response into native JavaScript objects
+	
+		//redirect till gallery
 		
 	}
   	
@@ -131,7 +132,7 @@ const AddHamster = () => {
 		<section>
 
 		<div className="form">
-
+			{/* NAME */}
 			<div className="formInput">
 				<label> NAME: </label><br />
 				<input 
@@ -143,7 +144,8 @@ const AddHamster = () => {
 				/>
 				{nameTouched ? <div className="message"> {nameErrorMessage} </div> : null}
 			</div>
-
+			
+			{/* AGE */}
 			<div className="formInput">
 				<label> AGE: </label><br />
 				<input 
@@ -156,6 +158,7 @@ const AddHamster = () => {
 				{ageTouched ? <div className="message"> {ageErrorMessage} </div> : null}
 			</div>
 
+			{/* FAV FOOD */}
 			<div className="formInput">
 				<label> FAVORITE FOOD: </label><br />
 				<input 
@@ -168,6 +171,7 @@ const AddHamster = () => {
 				{favFoodTouched ? <div className="message"> {favFoodErrorMessage} </div> : null}
 			</div>
 
+			{/* LOVES */}
 			<div className="formInput">
 				<label> LOVES: </label><br />
 				<input 
@@ -180,6 +184,7 @@ const AddHamster = () => {
 				{lovesTouched ? <div className="message"> {lovesErrorMessage} </div> : null}
 			</div>
 
+			{/* IMAGE */}
 			<div className="formInput">
 				<label> IMAGE: </label><br />
 				<input 
@@ -193,16 +198,16 @@ const AddHamster = () => {
 			</div>
 
 		
-
+			{/* ADD BUTTON */}
 			<div>
 				<button onClick={() => addHamster()} disabled={formIsInvalid}> Add Hamster </button>
 			</div>
 			
-
 		</div>
 
 		</section>
-
+		
+		{/* EXIT */}
 		<Link to="/"><h3 className="exit">EXIT(ESC)</h3></Link>
 
 	</div>

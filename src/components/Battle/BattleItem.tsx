@@ -8,7 +8,7 @@ const BattleItem = ({hamster}:Props) => {
 		<div>
 			<p>NAME: {hamster.name.toUpperCase()}</p>
 			<p>AGE: {hamster.age}</p>
-			<p>FAVORITE FOOD: {hamster.favFood}</p>
+			<p>FAVORITE FOOD: {hamster.favFood.toUpperCase()}</p>
 			<p>LOVES: {hamster.loves.toUpperCase()}</p>
 		</div>
 	)
