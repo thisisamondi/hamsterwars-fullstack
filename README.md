@@ -28,4 +28,5 @@ Design by me with a mockup I first made in figma:
 
 
 I also used Heroku to publish and operate the app 
+
 **Link:** https://hamsterwars-fs.herokuapp.com/
