@@ -1,14 +1,31 @@
 import './Home.css';
 import hammy from "../../img/hammy.png";
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import { useState } from "react";
 
 
 
 const Home = () => {
+
+const [serverDown, setServerDown] = useState(false)
+
+  axios.get('/hamsters')
+    .catch(function (error) {
+    if (error.response) {
+      setServerDown(true)
+    }
+
+  });
+
 	
 	return (
 		<div className="Home">
+			
 			<h1>HAMSTERWARS</h1>
+
+			 {serverDown ? <h4>Server is down, please try again later</h4> : "" }
+
 			<div className="homeContainer">
 				<img className="hammy" src={hammy} alt="hammy the hamster" />
 				<p className="maintxt">
